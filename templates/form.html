@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1 id="btn-groups">Incident Form</h1>
+</div>
+<ul class="nav nav-tabs">
+  <li ng-class="{active:tab=='general'}"><a href="#/general">General Information</a></li>
+  <li ng-class="{active:tab=='actions'}"><a href="#/actions">Corrective Actions</a></li>
+  <li ng-class="{active:tab=='submit'}"><a href="#/submit">REVIEW and SUBMIT</a></li>
+</ul>
+
+<div class="content">
+  <div ng-show="tab=='general'" ng-include="'templates/general.html'"></div>
+  <div ng-show="tab=='actions'" ng-include="'templates/actions.html'"></div>
+  <div ng-show="tab=='submit'" ng-include="'templates/submit.html'"></div>
+</div>

@@ -1,0 +1,41 @@
+<div class="alert alert-warning">
+  <div class="glyphicon glyphicon-exclamation-sign"></div>
+  <div class="message">Please review all the incident information and click "Submit" to send the report to the Company. If you want to change something - return to the Incident Form.</div>
+</div>
+
+<button class="btn btn-success" ng-click="submit()" ng-disabled="!incident.isValid() || !incident.actions.length">Submit</button>
+<h3>General Information:</h3>
+<table class="table table-striped summary">
+  <tr ng-repeat="field in fields">
+    <td class="col-sm-6">{{field.label}}:</td>
+    <td class="col-sm-6">
+      <span ng-show="incident.getValue(field.key)">{{incident.getValue(field.key)}}</span>
+      <span class="error" ng-show="field.required && !incident.getValue(field.key)">This field is required</span>
+    </td>
+  </tr>
+</table>
+
+<h3>Immediate Corrective Action(s):</h3>
+
+<div ng-show="!incident.actions.length" class="alert alert-danger">
+  At least one <a href="#actions">action</a> required!
+</div>
+
+<table ng-show="incident.actions" class="table table-striped summary" ng-repeat="action in incident.actions">
+  <tr>
+    <td class="col-sm-6">Description of Corrective Action ({{$index+1}}):</td>
+    <td class="col-sm-6">{{action.description}}</td>
+  </tr>
+  <tr>
+    <td class="col-sm-6">Action Taken By (name) ({{$index+1}}):</td>
+    <td class="col-sm-6">{{action.name}}</td>
+  </tr>
+  <tr>
+    <td class="col-sm-6">Company ({{$index+1}}):</td>
+    <td class="col-sm-6">{{action.company}}</td>
+  </tr>
+  <tr>
+    <td class="col-sm-6">Date ({{$index+1}}):</td>
+    <td class="col-sm-6">{{action.date}}</td>
+  </tr>
+</table>

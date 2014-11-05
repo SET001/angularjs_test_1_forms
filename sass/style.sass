@@ -1,0 +1,52 @@
+.error
+  color: #ff0000
+  
+.alert
+  overflow: hidden
+  .glyphicon-exclamation-sign
+    font-size: 30px
+    float: left
+    margin-right: 20px
+  .message
+    overflow: hidden
+
+
+.content
+  padding: 20px
+  border-left: 1px solid #ddd
+  border-right: 1px solid #ddd
+  border-bottom: 1px solid #ddd
+
+form.incident
+  label
+    font-weight: normal
+  .form-group
+    &.required
+      label.control-label
+        font-weight: bold
+        &:before
+          content: "*"
+          margin-right: 10px
+  .checkboxes
+    border: 1px solid #ddd
+    padding: 10px
+    label
+      clear: both
+      width: 100%
+      float: none
+      input[type=checkbox]
+        height: 20px
+        width: 20px
+        float: left
+        margin: 0
+        margin-right: 20px
+
+    .disale_severity
+      margin-top: 10px
+      padding-top: 10px
+      border-top: 1px solid #ddd
+
+
+table.summary
+  td:first-child
+    text-align: right

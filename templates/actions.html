@@ -1,0 +1,32 @@
+<div class="alert alert-warning">
+  <div class="glyphicon glyphicon-exclamation-sign"></div>
+  <div class="message">Please comlete the table below.</div>
+</div>
+
+<div class="page-header">
+  <h3>Immediate Corrective Action(s)</h3>
+  ({{incident.actions.length}} of 5 available)
+</div>
+
+<div class="navbar">
+  <button ng-click="addAction()" ng-disabled="incident.actions.length==5" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-plus"></span> Add action...</button>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>Description of Corrective Action</th>
+    <th>Action Taken By (name)</th>
+    <th>Company</th>
+    <th>Date</th>
+    <th>Remove</th>
+    <th>Edit</th>
+  </tr>
+  <tr ng-repeat="action in incident.actions">
+    <td>{{action.description}}</td>
+    <td>{{action.name}}</td>
+    <td>{{action.company}}</td>
+    <td>{{action.date}}</td>
+    <td><a href class="btn btn-primary btn-danger glyphicon glyphicon-remove" ng-click="removeAction(action)"></a></td>
+    <td><a href class="btn btn-primary btn-danger glyphicon glyphicon-pencil" ng-click="editAction(action)"></a></td>
+  </tr>
+</table>
